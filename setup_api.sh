@@ -66,6 +66,7 @@ def counting():
         if stop_thread:
             break
 
+# Stop Thread and reset counter
 @app.route("/counter/<uuid:counter_uuid>/stop")
 def stop(counter_uuid):
     global stop_thread
