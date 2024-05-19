@@ -1,0 +1,19 @@
+services:
+  nginx:
+    container_name: nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+
+  app:
+    image: app:latest
+    expose:
+      - "5000"
+    environment:
+      - SERVER_NAME=app
+    restart: always
+    scale: 3
