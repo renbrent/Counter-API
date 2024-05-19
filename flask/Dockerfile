@@ -4,6 +4,6 @@ WORKDIR /flask
 
 COPY app.py .
 
-RUN pip install flask
+RUN pip install flask && apt-get update && apt-get install -y curl
 
-CMD ["flask", "run", "--debug"]
+CMD ["flask", "run", "--host=0.0.0.0"]

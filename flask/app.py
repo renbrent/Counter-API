@@ -1,7 +1,11 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect
 
 app = Flask(__name__)
 counter = 0
+
+@app.route('/')
+def home():
+    return redirect("/counter")
 
 @app.route('/counter', methods=['GET'])
 def get_counter():
@@ -21,4 +25,4 @@ def delete_counter():
 
 
 if __name__ == '__name__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
